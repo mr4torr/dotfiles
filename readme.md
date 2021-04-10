@@ -21,9 +21,15 @@ sudo apt-get update && sudo apt-get install -y \
   python3-pip \
   shellcheck \
   tmux \
+  zsh \
   unzip
 ```
 
+```sh
+chsh -s $(which zsh)
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
+```
 
 #### Install these dotfiles and various tools on your system
 ```sh
@@ -37,12 +43,13 @@ git clone https://github.com/mr4torr/dotfiles ~/dotfiles
 #
 # NOTE: The last one is WSL 1 / 2 specific. Don't do it on native Linux / macOS.
 mkdir -p ~/.local/bin && mkdir -p ~/.vim/spell \
-  && ln -s ~/dotfiles/.aliases ~/.aliases \
   && ln -s ~/dotfiles/.bashrc ~/.bashrc \
-  && ln -s ~/dotfiles/.gitconfig ~/.gitconfig \
   && ln -s ~/dotfiles/.profile ~/.profile \
+  && ln -s ~/dotfiles/.gitconfig ~/.gitconfig \
+  && ln -s ~/dotfiles/.aliases ~/.aliases \
   && ln -s ~/dotfiles/.tmux.conf ~/.tmux.conf \
   && ln -s ~/dotfiles/.vimrc ~/.vimrc \
+  && ln -sf ~/dotfiles/.zshrc ~/.zshrc \
   && ln -s ~/dotfiles/.vim/spell/en.utf-8.add ~/.vim/spell/en.utf-8.add \
   && ln -s ~/dotfiles/.local/bin/set-theme ~/.local/bin/set-theme \
   && sudo ln -s ~/dotfiles/etc/wsl.conf /etc/wsl.conf
